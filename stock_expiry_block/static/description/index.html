@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<section style="max-width:800px; margin:0 auto; font-family:'Segoe UI', Arial, sans-serif; color:#2c3e50;">
+
+    <!-- Hero Banner -->
+    <div style="background:linear-gradient(135deg, #1a2447 0%, #2d3e6b 60%, #c0392b 100%); border-radius:12px; padding:40px 36px; margin-bottom:32px; text-align:center;">
+        <div style="font-size:52px; margin-bottom:12px;">🚫📦</div>
+        <h1 style="color:#ffffff; font-size:28px; font-weight:700; margin:0 0 10px 0; letter-spacing:0.5px;">
+            Block Expired Lots on Receipt
+        </h1>
+        <p style="color:#afc8ff; font-size:15px; margin:0; line-height:1.6;">
+            Automatically prevent validation of vendor receipts containing expired lots or serial numbers.<br/>
+            Protect your inventory — before it's too late.
+        </p>
+    </div>
+
+    <!-- Key Features -->
+    <h2 style="color:#1a2447; font-size:20px; font-weight:700; border-left:4px solid #c0392b; padding-left:12px; margin-bottom:20px;">
+        ✅ Key Features
+    </h2>
+
+    <table style="width:100%; border-collapse:collapse; margin-bottom:32px;">
+        <tr>
+            <td style="width:50%; padding:14px 16px; vertical-align:top;">
+                <div style="background:#f0f4ff; border-radius:10px; padding:18px; height:100%;">
+                    <div style="font-size:28px; margin-bottom:8px;">⛔</div>
+                    <strong style="color:#1a2447;">Hard Block on Validation</strong>
+                    <p style="color:#555; font-size:13px; margin:6px 0 0 0; line-height:1.5;">
+                        Users cannot confirm a receipt if any lot/serial number has an expired date. No workarounds.
+                    </p>
+                </div>
+            </td>
+            <td style="width:50%; padding:14px 16px; vertical-align:top;">
+                <div style="background:#fff0f0; border-radius:10px; padding:18px; height:100%;">
+                    <div style="font-size:28px; margin-bottom:8px;">📋</div>
+                    <strong style="color:#1a2447;">Detailed Error Message</strong>
+                    <p style="color:#555; font-size:13px; margin:6px 0 0 0; line-height:1.5;">
+                        Shows exactly which lot, product, and expiry field triggered the block — clear and actionable.
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:14px 16px; vertical-align:top;">
+                <div style="background:#f0fff4; border-radius:10px; padding:18px; height:100%;">
+                    <div style="font-size:28px; margin-bottom:8px;">📅</div>
+                    <strong style="color:#1a2447;">Checks All 3 Expiry Fields</strong>
+                    <p style="color:#555; font-size:13px; margin:6px 0 0 0; line-height:1.5;">
+                        Expiration Date, Best Before Date (use_date), and Removal Date — all covered.
+                    </p>
+                </div>
+            </td>
+            <td style="padding:14px 16px; vertical-align:top;">
+                <div style="background:#fffbf0; border-radius:10px; padding:18px; height:100%;">
+                    <div style="font-size:28px; margin-bottom:8px;">🎯</div>
+                    <strong style="color:#1a2447;">Incoming Receipts Only</strong>
+                    <p style="color:#555; font-size:13px; margin:6px 0 0 0; line-height:1.5;">
+                        Only affects vendor receipts. Internal transfers and deliveries are not impacted.
+                    </p>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- How It Works -->
+    <h2 style="color:#1a2447; font-size:20px; font-weight:700; border-left:4px solid #c0392b; padding-left:12px; margin-bottom:20px;">
+        ⚙️ How It Works
+    </h2>
+
+    <div style="background:#f8f9fc; border-radius:10px; padding:24px 28px; margin-bottom:32px;">
+        <div style="display:flex; align-items:flex-start; margin-bottom:16px;">
+            <div style="background:#1a2447; color:white; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; margin-right:14px; margin-top:1px;">1</div>
+            <p style="margin:0; color:#333; font-size:14px; line-height:1.6;">User clicks <strong>Validate</strong> on an incoming receipt (vendor shipment).</p>
+        </div>
+        <div style="display:flex; align-items:flex-start; margin-bottom:16px;">
+            <div style="background:#1a2447; color:white; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; margin-right:14px; margin-top:1px;">2</div>
+            <p style="margin:0; color:#333; font-size:14px; line-height:1.6;">Module scans all move lines and checks expiry dates on <code style="background:#e8ecf5; padding:1px 5px; border-radius:3px;">stock.move.line</code> first.</p>
+        </div>
+        <div style="display:flex; align-items:flex-start; margin-bottom:16px;">
+            <div style="background:#1a2447; color:white; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; margin-right:14px; margin-top:1px;">3</div>
+            <p style="margin:0; color:#333; font-size:14px; line-height:1.6;">Falls back to <code style="background:#e8ecf5; padding:1px 5px; border-radius:3px;">stock.production.lot</code> dates if move line has no dates set.</p>
+        </div>
+        <div style="display:flex; align-items:flex-start;">
+            <div style="background:#c0392b; color:white; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; margin-right:14px; margin-top:1px;">4</div>
+            <p style="margin:0; color:#333; font-size:14px; line-height:1.6;">If expired → raises <strong style="color:#c0392b;">UserError</strong> listing all affected lots, products, and dates. Receipt is blocked.</p>
+        </div>
+    </div>
+
+    <!-- Use Cases -->
+    <h2 style="color:#1a2447; font-size:20px; font-weight:700; border-left:4px solid #c0392b; padding-left:12px; margin-bottom:20px;">
+        🏭 Perfect For
+    </h2>
+
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px;">
+        <span style="background:#1a2447; color:white; padding:8px 16px; border-radius:20px; font-size:13px;">🍽️ Food &amp; Beverage</span>
+        <span style="background:#1a2447; color:white; padding:8px 16px; border-radius:20px; font-size:13px;">💊 Pharmaceutical</span>
+        <span style="background:#1a2447; color:white; padding:8px 16px; border-radius:20px; font-size:13px;">🧴 Cosmetics</span>
+        <span style="background:#1a2447; color:white; padding:8px 16px; border-radius:20px; font-size:13px;">🏥 Medical Devices</span>
+        <span style="background:#1a2447; color:white; padding:8px 16px; border-radius:20px; font-size:13px;">🧪 Chemical Industry</span>
+        <span style="background:#1a2447; color:white; padding:8px 16px; border-radius:20px; font-size:13px;">📦 Any Perishable Goods</span>
+    </div>
+
+    <!-- Technical Info -->
+    <h2 style="color:#1a2447; font-size:20px; font-weight:700; border-left:4px solid #c0392b; padding-left:12px; margin-bottom:20px;">
+        🔧 Technical Details
+    </h2>
+
+    <table style="width:100%; border-collapse:collapse; margin-bottom:32px; font-size:14px;">
+        <tr style="background:#1a2447; color:white;">
+            <td style="padding:10px 16px; border-radius:8px 0 0 0; font-weight:600;">Property</td>
+            <td style="padding:10px 16px; border-radius:0 8px 0 0; font-weight:600;">Value</td>
+        </tr>
+        <tr style="background:#f0f4ff;">
+            <td style="padding:10px 16px; color:#555; font-weight:600;">Odoo Version</td>
+            <td style="padding:10px 16px; color:#1a2447; font-weight:700;">18.0</td>
+        </tr>
+        <tr style="background:#ffffff;">
+            <td style="padding:10px 16px; color:#555; font-weight:600;">Dependencies</td>
+            <td style="padding:10px 16px; color:#1a2447;"><code>stock</code>, <code>product_expiry</code></td>
+        </tr>
+        <tr style="background:#f0f4ff;">
+            <td style="padding:10px 16px; color:#555; font-weight:600;">Model Overridden</td>
+            <td style="padding:10px 16px; color:#1a2447;"><code>stock.picking</code></td>
+        </tr>
+        <tr style="background:#ffffff;">
+            <td style="padding:10px 16px; color:#555; font-weight:600;">Method Overridden</td>
+            <td style="padding:10px 16px; color:#1a2447;"><code>button_validate</code></td>
+        </tr>
+        <tr style="background:#f0f4ff;">
+            <td style="padding:10px 16px; color:#555; font-weight:600;">License</td>
+            <td style="padding:10px 16px; color:#1a2447;">LGPL-3</td>
+        </tr>
+        <tr style="background:#ffffff; border-radius:0 0 8px 8px;">
+            <td style="padding:10px 16px; color:#555; font-weight:600; border-radius:0 0 0 8px;">Author</td>
+            <td style="padding:10px 16px; color:#1a2447; border-radius:0 0 8px 0;">Haytham Afify</td>
+        </tr>
+    </table>
+
+    <!-- Installation -->
+    <h2 style="color:#1a2447; font-size:20px; font-weight:700; border-left:4px solid #c0392b; padding-left:12px; margin-bottom:20px;">
+        📥 Installation
+    </h2>
+
+    <div style="background:#1a2447; border-radius:10px; padding:20px 24px; margin-bottom:32px;">
+        <p style="color:#afc8ff; font-size:13px; margin:0 0 12px 0; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Steps</p>
+        <p style="color:#e8f0ff; font-size:14px; margin:0 0 8px 0; line-height:1.7;">
+            1. Place <code style="background:#2d3e6b; padding:2px 6px; border-radius:4px; color:#7eb8ff;">stock_expiry_block</code> in your custom addons path.
+        </p>
+        <p style="color:#e8f0ff; font-size:14px; margin:0 0 8px 0; line-height:1.7;">
+            2. Update the Apps list in Odoo.
+        </p>
+        <p style="color:#e8f0ff; font-size:14px; margin:0; line-height:1.7;">
+            3. Search for <strong style="color:#ffffff;">Block Expired Lots on Receipt</strong> and install.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div style="text-align:center; padding:20px; border-top:2px solid #e8ecf5; color:#888; font-size:13px;">
+        Built with ❤️ by <strong style="color:#1a2447;">Haytham Afify</strong> &nbsp;|&nbsp;
+        <a href="https://github.com/haythamafify/custom_addons" style="color:#c0392b; text-decoration:none;">GitHub</a>
+        &nbsp;|&nbsp;
+        <a href="https://www.linkedin.com/in/haytham-gamal-4165797a/" style="color:#c0392b; text-decoration:none;">LinkedIn</a>
+    </div>
+
+</section>
+
+</body>
+</html>
