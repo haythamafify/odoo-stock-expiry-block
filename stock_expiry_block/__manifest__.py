@@ -19,6 +19,7 @@
     'website': 'https://github.com/haythamafify',
     'linkedin': 'https://www.linkedin.com/in/haytham-gamal-4165797a/',
     'depends': ['stock', 'product_expiry'],
+    'images': ['static/description/banner.png'],
     'data': [],
     'installable': True,
     'application': False,
